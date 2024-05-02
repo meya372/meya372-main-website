@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgba(199, 199, 199,.5);
+	font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.err_msg{
+    background-color: rgba(255, 0, 0,.3);
+    text-align: center;
+}
+
+.container{
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    margin: 5em auto;
+    justify-content: center;
+    
+}
+
+.left,
+.right{
+    width: 49%;
+}
+
+.left{
+    background-image:  linear-gradient(rgba(0, 0, 0,.2),rgba(0, 0, 0,.7)), url("../../images/1.jpg");
+    background-size: cover;
+    position: relative;
+}
+
+.left>div{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    left: 1em;
+}
+
+.right{
+    background-color: white;
+    padding: 4em 0;
+    position: relative;
+}
+
+.right>h2{
+    margin: 1em auto;
+    width: fit-content;
+}
+
+.right p{
+    margin: .5em auto;
+    width: fit-content;
+}
+
+.right p:last-child{
+    font-size: .8rem;
+    position: absolute;
+    bottom: .5em;
+    right: 1em;
+}
+
+.right form{
+    width: 90%;
+    margin: 1em auto;
+}
+
+.right form label{
+    margin-top: 1em;
+    display: block;
+}
+
+.right form input{
+    display: block;
+    width: 100%;
+    padding: .5em;
+    border: none;
+    outline: none;
+    border-bottom: 1px grey solid;
+    margin: 0 auto .5em auto;
+}
+
+
+.right form input[type="submit"]{
+    cursor: pointer;
+    margin: 1em auto;
+    width: fit-content;
+    color: white;
+    background-color: grey;
+    padding: .5em 2em;
+    border-radius: 20px;
+}
+
+.right form input[type="submit"]:hover{
+    background-color: black;
+}

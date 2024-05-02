@@ -1,0 +1,119 @@
+#birr{
+    color: mediumseagreen;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.prods_title{
+    width: fit-content;
+    border-bottom: black solid 5px;
+    font-size: 3rem;
+    margin: 1em 0 1em .8em;
+}
+
+.products .container{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.prod{
+    margin: 2rem 0; 
+    text-align: center;
+    width: 22%;
+}
+
+.prod img{
+    width: 100%;
+    height: 122px;
+    object-fit: contain;
+}
+
+
+#p_disc{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: .9rem;
+}
+
+.contact_us{
+    text-decoration: none;
+    font-size: .9rem;
+    padding: .2em .6em;
+    background-image: linear-gradient(to right bottom, #358CA1, #2C8CE1);
+    border: transparent solid 1px;
+    color: white;
+    display: block;
+    width: fit-content;
+    border-radius: 17px;
+    cursor: pointer;
+    width: fit-content;
+    margin: 1em auto;
+    transition: .3s;
+}
+
+.contact_us:hover{
+    color: #2C8CE1;
+    background-image: linear-gradient(transparent, transparent);
+    border: #2C8CE1 solid 1px;
+}
+
+footer{
+    margin-top: 1em;
+    background-color: aliceblue;
+}
+
+footer p{
+    padding: 1em 0;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.no_product{
+    color: red;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+    .prod{
+        width: 31%;
+    }
+
+    .products{
+        margin-top: 40px;
+    }
+
+    .prods_title{
+        width: fit-content;
+        border-bottom: black solid 2px;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .prod{
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .products .container{
+        justify-content: center;
+    }
+    .prod{
+        width: 68%;
+    }
+}

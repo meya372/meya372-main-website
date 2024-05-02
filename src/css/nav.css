@@ -1,0 +1,167 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+	font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+    background-color: rgba(34, 34, 34, .8);
+    font-size: .6rem;
+}
+
+nav .container{
+    width: 95%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+nav ul{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 1em 1.8em;
+}
+
+nav a{
+    text-decoration: none;
+    color: rgb(214, 214, 214);
+}
+nav a:hover{
+    color: white;
+}
+
+.parent_li{
+    position: relative;
+}
+
+.child_ul{
+    position: absolute;
+    background-color: black;
+    left: .9em;
+    top: 30px;
+    width: 10em;
+    display: none;
+}
+
+.child_ul li{
+    display: block;
+}
+
+.child_ul li:hover{
+    background-color: grey;
+}
+
+.parent_li:hover .child_ul{
+    display: block;
+}
+
+.hide-on-large{
+    display: none;
+}
+
+.search{
+    position: fixed;
+    right: 0px;
+    top: 2px;
+    color: #ff4500;
+    background-color: white;
+    z-index: 2;
+    animation-name: search-anim;
+    animation-duration: 1s;
+}
+
+.search button{
+    background-color: #ff4500;
+    color: white;
+    border: none;
+}
+
+#search_icon{
+    cursor: pointer;
+}
+
+#search_div{
+    display: none;
+}
+
+@keyframes search-anim{
+    from{transform: translateX(100%);}
+    to{transform: translateX(0%);}
+}
+
+.search input{
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.search span{
+    display: inline-block;
+    line-height: 25px;
+    background-color: orangered;
+}
+
+.search i{
+    color: white;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+
+#search_now{
+    background-color: orangered;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+#close_search{
+    background-color: black;
+    margin-right: 3px;
+}
+
+@media screen and (max-width: 780px){
+    .hide-on-small{
+        display: none;
+    }
+
+    .p-hide-on-small{
+        display: none;
+    }
+
+    .hide-on-large{
+        display: inline;
+    }
+
+    #nav-ul{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav .ul li{
+        display: block;
+    }
+
+    #x{
+        color: white;
+        cursor: pointer;
+    }
+}

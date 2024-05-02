@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --border-color: #2C8CE1;
+}
+
+
+.feed_page {
+    margin-top: 50px;
+}
+
+.feed_page .container{
+    width: 90%;
+    max-width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.right_promo_2{
+    width: 100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.right_promo_2 img{
+    width: 100%;
+}
+
+.left_promo_2{
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* =========================== Newly added form styles ========================== */
+
+.feedback-container {
+    margin: 1em 0em;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 3px solid rgb(243, 239, 239);
+    border-radius: 0.7em;
+    padding: 1em;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.form-header {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.form-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.input {
+    padding: 1em 1.2em;
+    border: 2px solid var(--border-color);
+    border-radius: 0.3em;
+    outline: none;
+    width: 100%;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.7em 1em;
+    border: 3px solid var(--border-color);
+    border-radius: 0.3em;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.2);
+    background-image: linear-gradient(to right bottom, #358CA1, var(--border-color));
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-image: linear-gradient(transparent, transparent);
+    border: 3px solid var(--border-color);
+    color: var(--border-color);
+}
+
+@media screen and (min-width: 780px) {
+    .feedback-container {
+        margin: 1em 13em;
+        padding: 2rem;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .feedback-container {
+        margin: 1em 25rem;
+        padding: 2rem;
+    }
+}
+
+/* =========================== End Newly added form styles ========================== */
+
+/* .feedback input,
+.feedback textarea{
+    display: block;
+    outline: none;
+    font-size: 1.2rem;
+    margin-bottom: .7em;
+    border: none;
+    width: 95%;
+    border-bottom: 1px black solid;
+}
+
+.feedback textarea{
+    height: 8rem;
+    border: solid black 1px;
+}
+
+.feedback input[type="submit"]{
+    padding: .3em .7em;
+    background-image: linear-gradient(to right bottom, #358CA1, #2C8CE1);
+    border: none;
+    color: white;
+    display: block;
+    width: fit-content;
+    border-radius: 27px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.feedback input[type="submit"]:hover{
+    background-image: linear-gradient(transparent, transparent);
+    border: 1px solid #2C8CE1;
+    color: #2C8CE1;
+
+} */
+
+.stars{
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.stars i{
+    cursor: pointer;
+    font-size: 1.2rem;
+    background: -webkit-linear-gradient(#e2b0c1, #e2c107, #e46692);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.feedback_anim{
+    animation: feedback_animation 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    margin-bottom: 3em;
+}
+
+@keyframes feedback_animation {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(240deg);
+    }
+}
+
+
+
+

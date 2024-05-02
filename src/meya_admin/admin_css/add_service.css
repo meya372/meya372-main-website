@@ -1,0 +1,162 @@
+
+/* the form */
+.add_service{
+    border-radius: 3px;
+    width: 95%;
+    max-width: 500px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin: 1em auto;
+    padding: 1.5em 0;
+}
+
+.add_service label{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    color: red;
+}
+
+.add_service input,
+.add_service select{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    margin-bottom: 1em;
+}
+
+.add_service input[type="text"],
+.add_service input[type="number"]{
+    border: none;
+    border-bottom: solid skyblue 1px;
+    border-radius: 3px;
+    padding: .1em .5em;
+    margin-left: 1.5em;
+}
+
+.add_service input[type="text"]:focus,
+.add_service input[type="number"]:focus{
+    outline: none;
+    border: solid skyblue 1px;
+}
+
+/* to remove up and down arrow from input type number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.add_service select{
+    border: solid .3px skyblue;
+    border-radius: 25px;
+    color: black;
+    padding: .3em;
+}
+
+.add_service select:focus{
+    outline: none;
+}
+
+
+.add_service input[type="file"]{
+    color: green;
+}
+
+.add_service input[type="submit"]{
+    width: fit-content;
+    border: none;
+    background-color: skyblue;
+    margin-bottom: 0em;
+    padding: .3em 1em;
+    color: black;
+}
+
+.add_service input[type="submit"]:hover{
+    cursor: pointer;
+    color: dimgray
+}
+
+/* the table */
+.services{
+    width: 95%;
+    max-width: 900px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    margin: 2em auto;
+    
+}
+
+.tbl_img{
+    width: 70%;
+}
+
+.sh_disc{
+  white-space: nowrap; 
+  width: 10vw; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+}
+
+.services table{
+    border-collapse: collapse;
+    /* background-image: linear-gradient(to right, rgb(0, 116, 233), rgb(122, 188, 255)); */
+    background-image: linear-gradient(to right, rgb(61, 105, 150), rgb(233, 233, 233));
+    color: white;
+    border-radius: 3px;
+}
+
+.services th,td{
+    padding: .5em;
+    border-bottom: black solid 1px;
+}
+
+.services th{
+    color: yellow;
+    font-size: 1.3rem;
+    background-color: rgb(61, 105, 150);
+}
+
+
+.feedback table{
+    background-image: linear-gradient(to right, white, white);
+    color: black;
+    
+}
+
+.feedback th{
+    background-color: white;
+    color: black;
+    border: solid 1px;
+}
+
+.feedback td{
+    border: solid 1px;
+}
+
+.edit_service,
+.delete_service{
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    padding: .5em 1em;
+}
+
+.edit_service{
+    background-color: mediumspringgreen;
+}
+
+.delete_service{
+    background-color: red;
+}
+
+.err_msg{
+    background-color: rgba(255, 0, 0,.3);
+    text-align: center;
+}

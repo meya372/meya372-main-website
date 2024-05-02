@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        #scroller{
+            overflow: hidden;
+        }
+        #scroll_items{
+            position: relative;
+            display: flex;
+            animation: scroll;
+            animation-duration: 24s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            /* animation-direction: alternate; */
+        }
+
+        @keyframes scroll{
+            0%{
+                left: 0;
+            }
+            100%{
+                left: -100%;
+            }
+        }
+        #scroll_items img{
+            width: 170px;
+        }
+    </style>
+</head>
+<body>
+   <div id="scroller">
+        <div id="scroll_items">
+            <div class="scroll_item">
+                <img src="images/l2.png" alt="">
+                <h3>Samsung 75</h3>
+                <p>25000</p>
+            </div>
+
+            <div class="scroll_item">
+                <img src="images/l2.png" alt="">
+                <h3>Samsung 75</h3>
+                <p>25000</p>
+            </div>
+
+            
+            <div class="scroll_item">
+                <img src="images/l2.png" alt="">
+                <h3>Samsung 75</h3>
+                <p>25000</p>
+            </div>
+            <div class="scroll_item">
+                <img src="images/l2.png" alt="">
+                <h3>Samsung 75</h3>
+                <p>25000</p>
+            </div>
+            <div class="scroll_item">
+                <img src="images/l2.png" alt="">
+                <h3>Samsung 75</h3>
+                <p>25000</p>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>

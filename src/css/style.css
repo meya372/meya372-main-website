@@ -1,0 +1,450 @@
+.font {
+    font-family: "Noto Sans Ethiopic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.main_container{
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.prev_next_btns{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: .3em;
+    color: white;
+    background-color: rgba(128, 128, 128, .7);
+}
+
+#prev{
+    left: .6em;
+}
+
+#next{
+    right: .6em;
+}
+
+.main{
+    height: 93vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main-text,
+.main-img{
+    width: 48%;
+}
+
+#main_img2,
+#main_text2,
+#main_text3,
+#main_img3,
+#main_text4,
+#main_img4,
+#main_text5,
+#main_img5{
+    display: none;
+}
+
+.main-text{
+    padding-left: 1em;
+    transform: translateX(-550px);
+    animation-name: txt-anim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes txt-anim {
+    from{
+        transform: translateX(-550px);
+    }to{
+        transform: translateX(0);
+    }
+}
+
+
+.main-text h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding-left: .3em;
+    font-size: 3rem;
+    background-image: linear-gradient(90deg, #00dbde, #fc00ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300%;
+    animation: h1-anim 8s infinite alternate;
+    animation-fill-mode: forwards;
+}
+
+@keyframes h1-anim {
+    from{
+        background-size: 100%;
+    }
+    to{
+        background-size: 50%;
+    }
+}
+
+
+.main-img img{
+    width: 100%;
+    transform: translateX(500px);
+    animation-name: img-anim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes img-anim {
+    from{
+        transform: translateX(500px);
+    }to{
+        transform: translateX(0);
+    }
+}
+
+.m_footer{
+    position: absolute;
+    bottom: .3em;
+    right: 1em;
+    font-size: .8rem;
+}
+
+.m_footer i{
+    margin-right: .3em;
+    animation: i-anim 3s infinite alternate;
+    animation-fill-mode: forwards;
+}
+
+@keyframes i-anim{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(0deg);
+        color: black;
+    }
+    100%{
+        transform: rotate(-360deg);
+        color: rgb(129, 0, 0);
+    }
+}
+
+.m_footer a{
+    text-decoration: none;
+    color: black;
+}
+
+/* scroll */
+#scroller{
+    margin: 50px 0;
+    overflow: hidden;
+}
+
+#scroll_items{
+    position: relative;
+    display: flex;
+    animation: scroll;
+    animation-duration: 24s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    /* animation-direction: alternate; */
+}
+
+@keyframes scroll{
+    0%{
+        left: 0;
+    }
+    100%{
+        left: -100%;
+    }
+}
+
+.scroll_item{
+    margin: 10px 20px;
+}
+
+#scroll_items img{
+    width: 170px;
+    height: 170px;
+    object-fit: contain;
+}
+
+#scroll_items>*{
+    text-align: center;
+}
+
+.sc_money{
+    color: mediumaquamarine;
+    font-weight: bold;
+}
+
+/* //prom */
+.promo_1{
+    margin: 3em auto;
+    background-color: white;
+    padding: 2em 0;
+}
+
+.promo_1 .container{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    margin: 1em auto;
+}
+
+.prom{
+    padding: 1em 0;
+    width: 30%;
+    text-align: center;
+}
+
+.prom i{
+    display: block;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: .5em;
+    background-image: linear-gradient(to bottom right, #00dbde, #fc00ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300%;
+    animation: h1-anim 8s infinite alternate;
+    animation-fill-mode: forwards;
+}
+
+.prom h2{
+    margin-bottom: 1em;
+}
+
+
+.main2{
+    background-color: black;
+    color: white;
+    margin: 1em auto;
+    padding: 2em 0;
+}
+
+.main2>h1{
+    padding-left: .3em;
+    font-size: 4rem;
+    line-height: 4rem;
+}
+
+.main2>img{
+    width: 70%;
+    display: block;
+    margin: 3em auto;
+}
+
+.main2>a{
+    width: fit-content;
+    display: block;
+    margin: 1em auto;
+    padding: .3em 1em;
+    font-size: 1.3rem;
+    border-radius: 2em;
+    border: 2px solid white;
+    text-decoration: none;
+    color: white;
+    transition: .2s;
+}
+
+.main2>a:hover{
+    background-color: white;
+    color: black;
+}
+
+/* footer 1 */
+.footer_1{
+    background-color: #F7F7F7;
+    color: black;
+    padding: 2em 0;
+}
+
+.footer_1 .container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.footer_contact{
+    width: 30%;
+}
+
+.footer_contact p{
+    margin-bottom: .5em;
+}
+
+.footer_contact i{
+    color: black;
+    margin-right: .5em;
+}
+
+.footer_contact a{
+    color: #3073e6;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.footer_about{
+    width: 30%;
+}
+
+.footer_about p{
+    max-width: 300px;
+}
+
+/* the map */
+.map{
+    width: 31%;
+}
+
+.map iframe{
+    width: 100%;
+}
+
+/* footer 2 */
+.footer_2{
+    border-top: 1px black solid;
+    padding: .5em;
+    text-align: center;
+}
+
+.pagination{
+    position: absolute;
+    bottom: 4em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pagination span{
+    display: inline-block;
+    margin: 0 .5em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: white;
+    border: gray 1px solid;
+}
+
+#active{
+    background-color: grey;
+}
+
+@media screen and (max-width: 600px) {
+    .main_container{
+        height: fit-content;
+    }
+    .main{
+        flex-direction: column-reverse;
+        height: fit-content;
+        padding-top: 50px;
+    }
+
+    .main-text,
+    .main-img{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .prev_next_btns{
+        font-size: .9rem;
+    }
+
+    #prev{
+        left: 0;
+    }
+
+    .main-text h1{
+        line-height: 1em;
+        font-size: 2rem;
+        padding: 0;
+    }
+
+    .main2>h1{
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    .m_footer{
+        position: static;
+        width: fit-content;
+        margin: 0 auto;
+        padding-top: 50px;
+    }
+    
+    .pagination{
+        position: static;
+        transform: translateX(0);
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .pagination span{
+        color: black;
+    }
+
+    .promo_1{
+        margin: 0 auto 1em auto;
+        padding: 0;
+    }
+
+    .promo_1 .container{
+        flex-direction: column;
+    }
+
+    .prom{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .prom h2{
+        margin-bottom: 0;
+    }
+
+    .footer_1 .container{
+        flex-direction: column;
+    }
+
+    .map,
+    .footer_about,
+    .footer_contact{
+        width: 100%;
+        margin: 1em auto;
+    }
+
+
+}
+
+
+/* the touching scroll goes here just remove this */
+@media (hover: none) {
+	#scroll_items{
+	    animation-duration: 0s;
+	}
+	#scroller{
+	    overflow: auto;
+	    -webkit-overflow-scrolling: touch;
+	}
+}
+
+
+
+/* the touching scroll ends here*/
