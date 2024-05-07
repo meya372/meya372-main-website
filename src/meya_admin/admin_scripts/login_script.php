@@ -7,6 +7,9 @@ if (isset($_POST['login-submit'])) {
     $u_name = htmlspecialchars($_POST['u_name']);
     $pwd = htmlspecialchars($_POST['password']);
 
+
+
+
     //if there is any empty field that was not filled
     if (empty($u_name) || empty($pwd)) {
         header("location: ../index.php?error=empty_fields");

@@ -1,3 +1,42 @@
+<?php
+
+if (isset($_POST['submit'])) {
+    require './config/conn.php';
+
+    echo $_POST['submit'];
+
+    $name = $_POST['c_name'];
+    $email = $_POST['c_email'];
+    $feedback = mysqli_real_escape_string($conn, $_POST['feedback']);
+    $stars = 0;
+    $currentDate = date('Y-m-d H:i:s');
+
+    $sql = "INSERT INTO feedback(u_name, email, feedback, star, created_at) 
+        VALUES (?, ?, ?, ?, ?)";
+
+    $stmt = mysqli_prepare($conn, $sql);  // Prepare the statement
+
+    mysqli_stmt_bind_param($stmt, "sssss", $name, $email, $feedback, $stars, $currentDate);
+
+    if (mysqli_stmt_execute($stmt)) {
+        echo "Feedback added successfully!";
+        header("Location: ./feedback.php?success=feedback-added");
+    } else {
+        // echo "Error adding product: " . mysqli_error($conn);
+        $err = "image type is not allowed!";
+        header("Location: ./feedback.php?error=$err");
+        header("location: ./feedback.php?error=" . mysqli_error($conn));
+    }
+
+    mysqli_stmt_close($stmt); // Close the prepared statement
+}
+
+
+
+
+?>
+
+
 <!-- including the head -->
 <?php include('partials/head.php') ?>
 
@@ -62,7 +101,7 @@
                     <img src="images/feedback.svg" alt="">
                 </div>
                 <!-- feedback form -->
-                <div class="feedback-form">
+                <form action="" method="POST" class="feedback-form">
                     <h2 class="form-header mb-3 text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">Send Your Feedback</h1>
                         <div class="form-inputs">
                             <label class="" for="c_name">Name</label>
@@ -94,16 +133,17 @@
                                         }
                                         for (let a = i + 1; a < 5; a++) {
                                             stars[a].setAttribute('class', 'fa-star fa-regular')
+                                            $star = stars[a];
                                         }
                                     })
                                 }
                             </script>
                         </div>
                         <!-- submit button -->
-                        <input class="btn-submit" type="submit" name="submit_feedback" value="Submit">
-                </div>
+                        <input class="btn-submit" type="submit" name="submit" value="Submit">
             </div>
         </div>
+    </div>
     </div>
     <?php include('main_footer.php') ?>
 </body>
