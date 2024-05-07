@@ -33,7 +33,7 @@ else {
   $description = $_POST['article'];
 
   do {
-    if (empty($id) || empty($id) || empty($description)) {
+    if (empty($id) || empty($title) || empty($description)) {
       $errorMessage .= 'All Fields are required';
       break;
     }
