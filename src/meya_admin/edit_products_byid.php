@@ -2,7 +2,7 @@
 require "../config/conn.php";
 
 $id = "";
-$s_name = "";
+$p_name = "";
 $price = "";
 $category = "";
 $description = "";
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
   $id = $row['id'];
-  $s_name = $row['p_name'];
+  $p_name = $row['p_name'];
   $price = $row['price'];
   $category = $row['category'];
   $description = $row['discription'];
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 // Post and other requests
 else {
   $id = $_POST['id'];
-  $s_name = $_POST['p_name'];
+  $p_name = $_POST['p_name'];
   $price = $_POST['price'];
   $category = $_POST['category'];
   $description = mysqli_real_escape_string($conn, $_POST['discription']);
@@ -59,7 +59,7 @@ else {
   $error2 = $_FILES['img2_url']['error'];
 
   do {
-    if (empty($id) || empty($s_name) || empty($description) || empty($image1) || empty($image2)) {
+    if (empty($id) || empty($p_name) || empty($description) || empty($image1) || empty($image2)) {
       $errorMessage = 'All Fields are required';
       break;
     }
@@ -91,7 +91,7 @@ else {
     $sql = "UPDATE products SET p_name = ?, price = ?, category = ?, discription = ?, img_url = ?, img2_url = ? WHERE id = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sssssss", $s_name, $price, $category, $description, $new_img_name, $new_img2_name, $id);
+    mysqli_stmt_bind_param($stmt, "sssssss", $p_name, $price, $category, $description, $new_img_name, $new_img2_name, $id);
     $result = mysqli_stmt_execute($stmt);
 
     if (!$result) {
@@ -177,7 +177,7 @@ else {
         <input type="hidden" name="id" value="<?php echo $id ?>">
         <div class="flex flex-col gap-3">
           <label class="text-lg font-semibold" for="p_name">Product Name</label>
-          <input value="<?php echo $s_name ?>" placeholder="Product name" class="py-2 px-3 rounded-md border-2 border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" required id="p_name" name="p_name" type="text">
+          <input value="<?php echo $p_name ?>" placeholder="Product name" class="py-2 px-3 rounded-md border-2 border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" required id="p_name" name="p_name" type="text">
           <p class="hidden text-red-500">Error message</p>
         </div>
         <div class="flex flex-col gap-3">
