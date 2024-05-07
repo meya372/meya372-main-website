@@ -1,7 +1,7 @@
 <?php
 require "../config/conn.php";
 
-$s_name = "";
+$id = "";
 $title = "";
 $description = "";
 
@@ -15,25 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     exit;
   }
 
-  $s_name = $_GET["id"];
+  $id = $_GET["id"];
 
-  $sql = "SELECT * FROM tutorials WHERE id=$s_name";
+  $sql = "SELECT * FROM tutorials WHERE id=$id";
   $result = mysqli_query($conn, $sql);
   $row = $result->fetch_assoc();
 
 
-  $s_name = $row['id'];
+  $id = $row['id'];
   $title = $row['title'];
   $description = $row['article'];
 }
 // Post and other requests
 else {
-  $s_name = $_POST['id'];
+  $id = $_POST['id'];
   $title = $_POST['title'];
   $description = $_POST['article'];
 
   do {
-    if (empty($s_name) || empty($s_name) || empty($description)) {
+    if (empty($id) || empty($id) || empty($description)) {
       $errorMessage .= 'All Fields are required';
       break;
     }
@@ -41,7 +41,7 @@ else {
     $sql = "UPDATE tutorials SET title = ?, article = ? WHERE id = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "sss", $title, $description, $s_name);
+    mysqli_stmt_bind_param($stmt, "sss", $title, $description, $id);
     $result = mysqli_stmt_execute($stmt);
 
     if (!$result) {
