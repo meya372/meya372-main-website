@@ -25,14 +25,6 @@ $search_word = mysqli_real_escape_string($conn, $_POST['search_word']);
                 if (mysqli_num_rows($res) > 0) {
                     while ($row = mysqli_fetch_assoc($res)) {
                 ?>
-
-                        <!-- <div class="prod">
-                            <img src="meya_admin/products/<?php echo $row['img_url'] ?>" alt="">
-                            <h3><?php echo $row['p_name']; ?></h3>
-                            <p><span id="birr"> <?php echo $row['price']; ?></span> Birr</p>
-                            <p id="p_disc"><?php echo $row['discription']; ?></p>
-                            <a class="contact_us" href="product_detail.php?p_id=<?php echo $row['id']; ?>">See detail</a>
-                        </div> -->
                         <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
                                 <img class="rounded-t-lg" src="meya_admin/products/<?php echo $row['img_url'] ?>" alt="" />
@@ -42,7 +34,7 @@ $search_word = mysqli_real_escape_string($conn, $_POST['search_word']);
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $row['p_name']; ?></h5>
                                 </a>
 
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo $row['discription']; ?></p>
+                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php echo substr($row['discription'], 0,50) . " ..." ?></p>
                                 <a href="#" class="mb-3">
                                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><?php echo $row['price']; ?> Birr</h5>
                                 </a>

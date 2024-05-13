@@ -1,3 +1,66 @@
+<!-- ========================== PHP Code ================================== -->
+<?php
+// Start the PHP session
+session_start();
+
+// Define a session variable to store a unique identifier
+$user_id = session_id();
+
+// Database connection details (replace with your actual details)
+$servername = "localhost";
+$username = "meya372com372";
+$password = "P6xUbliG4cW7tE1";
+$dbname = "meya372com_meya372";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// include "./config/conn.php";
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Define table and column names
+// Define table and column names
+$table = "visit";
+$count_column = "blog_visit_count";
+
+// Lock the table row for exclusive access during update (optional)
+// mysqli_query($conn, "LOCK TABLE $table IN LOW_PRIORITY MODE"); 
+
+// Select the current visit count
+$sql_select = "SELECT $count_column FROM $table LIMIT 1";
+$result_select = mysqli_query($conn, $sql_select);
+
+// If a record exists, update the count
+if (mysqli_num_rows($result_select) > 0) {
+    $row = mysqli_fetch_assoc($result_select);
+    $current_count = $row[$count_column];
+
+    $sql_update = "UPDATE $table SET $count_column = $current_count + 1";
+
+    if (mysqli_query($conn, $sql_update)) {
+        echo "Visit count updated successfully! Your current visit count is: " . ($current_count + 1);
+    } else {
+        echo "Error updating visit count: " . mysqli_error($conn);
+    }
+} else {
+    // If record doesn't exist, create it with a count of 1
+    $sql_insert = "INSERT INTO $table ($count_column) VALUES (1)";
+
+    if (mysqli_query($conn, $sql_insert)) {
+        // echo "Visit record created. Visit count is: 1";
+    } else {
+        echo "Error creating visit record: " . mysqli_error($conn);
+    }
+}
+?>
+
+<!-- ========================== END OF PHP Code ================================== -->
+
+
 <!-- including the head -->
 <?php include('partials/head.php') ?>
 
@@ -47,15 +110,7 @@
                         }
                     }
                     ?>
-                    <!-- <div class="tutorial">
-                        <h4></h4>
-                        <p></p>
-                        <div class="icons">
-                            <i class="like fa-regular fa-thumbs-up"></i>
-                            <i class="dislike fa-regular fa-thumbs-down"></i>
-                            <i class="clap fa-solid fa-hands-clapping"></i>
-                        </div>
-                    </div> -->
+                    
                 </div>
             </div>
             <!-- add footer here -->

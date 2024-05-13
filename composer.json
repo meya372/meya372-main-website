@@ -1,18 +1,18 @@
 {
-    "name": "meya/store",
-    "description": "Meya stores Dashboard and main page",
-    "type": "project",
-    "autoload": {
-        "psr-4": {
-            "Meya\\Store\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Amanuel"
-        }
-    ],
-    "require": {
-        "erusev/parsedown": "^1.7"
+  "name": "meya/store",
+  "description": "Meya stores Dashboard and main page",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "Meya\\Store\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Amanuel Mekashaw"
+    }
+  ],
+  "require": {
+    "erusev/parsedown": "^1.7"
+  }
 }

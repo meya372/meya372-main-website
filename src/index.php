@@ -8,6 +8,68 @@
 
 </head>
 
+<!-- ========================== PHP Code ================================== -->
+<?php
+// Start the PHP session
+session_start();
+
+// Define a session variable to store a unique identifier
+$user_id = session_id();
+
+// Database connection details (replace with your actual details)
+$servername = "localhost";
+$username = "meya372com372";
+$password = "P6xUbliG4cW7tE1";
+$dbname = "meya372com_meya372";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// include "./config/conn.php";
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Define table and column names
+// Define table and column names
+$table = "visit";
+$count_column = "visit_count";
+
+// Lock the table row for exclusive access during update (optional)
+// mysqli_query($conn, "LOCK TABLE $table IN LOW_PRIORITY MODE"); 
+
+// Select the current visit count
+$sql_select = "SELECT $count_column FROM $table LIMIT 1";
+$result_select = mysqli_query($conn, $sql_select);
+
+// If a record exists, update the count
+if (mysqli_num_rows($result_select) > 0) {
+  $row = mysqli_fetch_assoc($result_select);
+  $current_count = $row[$count_column];
+
+  $sql_update = "UPDATE $table SET $count_column = $current_count + 1";
+
+  if (mysqli_query($conn, $sql_update)) {
+    echo "Visit count updated successfully! Your current visit count is: " . ($current_count + 1);
+  } else {
+    echo "Error updating visit count: " . mysqli_error($conn);
+  }
+} else {
+  // If record doesn't exist, create it with a count of 1
+  $sql_insert = "INSERT INTO $table ($count_column) VALUES (1)";
+
+  if (mysqli_query($conn, $sql_insert)) {
+    echo "Visit record created. Visit count is: 1";
+  } else {
+    echo "Error creating visit record: " . mysqli_error($conn);
+  }
+}
+?>
+
+<!-- ========================== END OF PHP Code ================================== -->
+
 <body>
     <div class="main_container">
         <!-- ========== Navbar section -->
@@ -189,45 +251,6 @@
             <i class="fa-solid fa-plug"></i>
         </div>
     </div>
-
-
-    <!-- ============= Footer section ==================== -->
-    <!-- <footer>
-        <div class="footer_1">
-            <div class="container">
-                <div class="footer_about">
-                    <h1>Meya 372</h1>
-                    <p>We love to hear from you. Whether you have a question or need a repair, use our contact form to get in touch. </p>
-                </div>
-
-                <div class="footer_contact">
-                    <p>
-                        <i class="fa-solid fa-location-dot"></i>
-                        Dir-Tera, Addis Ababa, Ethiopia
-                    </p>
-
-                    <p>
-                        <a href="tel:0993820873"><i class="fa-solid fa-phone"></i>09 93 82 08 73</a>
-                    </p>
-
-                    <p>
-                        <i class="fa-solid fa-envelope"></i>
-                        <a href="#">meya372@gmail.com</a>
-                    </p>
-                </div>
-
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.324438515835!2d38.733975099999995!3d9.0341398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b860120e9b9bb%3A0xd44281cd3572e55d!2zS2VyZW1lbGEgQnVpbGRpbmcgfCBNZXJrYXRvIHwg4Yqo4Yio4Yic4YiLIOGIheGKleGMuyB8IOGImOGIreGKq-GJtg!5e0!3m2!1sen!2set!4v1665816484444!5m2!1sen!2set" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer_2">
-            <div class="container">
-                <p> &#169;<?php echo date("Y") ?> Copyright. All rights reserved. Meya372 </p>
-            </div>
-        </div>
-    </footer> -->
 
     <!-- ================ the new footer component section ================ -->
     <?php include('main_footer.php') ?>
