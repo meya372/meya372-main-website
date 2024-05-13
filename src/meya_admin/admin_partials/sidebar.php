@@ -66,5 +66,3 @@
 
   </div>
 </section>
-
-<!-- <script src="./sidebar.js"></script> -->

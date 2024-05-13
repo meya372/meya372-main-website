@@ -10,20 +10,20 @@
         
         //if there is any empty field that was not filled
         if(empty($password) || empty($confirm_pwd) ||empty($u_name)){
-            header('location: ../add_admin.php?error=empty_fields&u_name='.$u_name);
+            header('location: ../signup.php?error=empty_fields&u_name='.$u_name);
             exit();
         }
 
  
         //unmatched passwords
         else if($password != $confirm_pwd){
-            header('location: ../add_admin.php?error=pwderr&u_name='.$u_name);
+            header('location: ../signup.php?error=pwderr&u_name='.$u_name);
             exit();
         }else{
             $select_query = "SELECT u_name FROM managers WHERE u_name = ?";
             $stmt = mysqli_stmt_init($conn);
             if (!mysqli_stmt_prepare($stmt, $select_query)) {
-                header("location: ../add_admin.php?error=sql_err");
+                header("location: ../signup.php?error=sql_err");
                 exit();
             } else{
                 //binding
@@ -40,7 +40,7 @@
                 
                 //if u_name is taken
                 if ($count > 0) {
-                    header('location: ../add_admin.php?error=u_name_taken');
+                    header('location: ../signup.php?error=u_name_taken');
                     exit();
                 }else {
 
@@ -49,7 +49,7 @@
 
                     $stmt = mysqli_stmt_init($conn);
                     if (!mysqli_stmt_prepare($stmt, $insert_query)) {
-                        header("location: ../add_admin.php?error=sql_err");
+                        header("location: ../signup.php?error=sql_err");
                         exit();
                     }else{
                         // TODO enable password hashing
@@ -74,7 +74,7 @@
         mysqli_close($conn);
     
     }else{
-        //if the user didn't come from the signup page return to the signup page
-        // header('location: ../index.php');
-        // exit();
+        // if the user didn't come from the signup page return to the signup page
+        header('location: ../index.php');
+        exit();
 }

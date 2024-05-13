@@ -9,7 +9,6 @@ if (!isset($_GET["id"])) {
   $s_name = $_GET["id"];
 }
 
-
 //sql command to delete
 $sql = "DELETE From services WHERE id = $s_name";
 

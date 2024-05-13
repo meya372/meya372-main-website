@@ -1,16 +1,12 @@
 <?php include '../config/conn.php' ?>
 <!-- including the head -->
 <?php include 'admin_partials/head.php' ?>
-
-<title>Meya ADMIN Dashboard</title>
-<!-- <link rel="stylesheet" href="admin_css/style.css"> -->
-<link rel="stylesheet" href="admin_css/dashboard.css">
-<link rel="stylesheet" href="admin_css/edit_product_table.css">
+    <title>Meya ADMIN Dashboard</title>
+    <link rel="stylesheet" href="admin_css/dashboard.css">
+    <link rel="stylesheet" href="admin_css/edit_product_table.css">
 </head>
 
 <body>
-
-
     <div class="dashboard-container">
         <!-- Header -->
         <div class="nav">
@@ -51,6 +47,8 @@
                         }
                     }
                     ?>
+
+
                     <div class="flex items-end justify-between text-white bg-purple-500 p-5 rounded-xl shadow-md">
                         <div class="flex flex-col">
                             <!-- icon -->
@@ -122,7 +120,7 @@
                     </div>
                     <!-- 3rd -->
                     <?php
-                    $select_query = "select * from tutorials";
+                    $select_query = "SELECT * FROM tutorials";
                     $t = 0;
                     $res = mysqli_query($conn, $select_query) or die(mysqli_error($conn));
                     if (mysqli_num_rows($res) > 0) {
@@ -158,12 +156,156 @@
                         <img class="w-full h-[300px]" src="../images/dashboard-chart.svg" alt="">
                     </div>
 
-                    <!-- Top Products -->
-                    <div class="bg-white p-5 rounded-lg overflow-hidden">
-                        <h2 class="font-bold text-xl">Top Products</h2>
+                    <!-- View Counter -->
+                    <div class="h-full bg-white p-5 rounded-lg ">
+                        <?php $count = 0; ?>
+                        <h2 class="font-bold text-xl">Viewer Count</h2>
                         <hr class="my-2">
-                        <div class="h-full w-full bg-slate-100 rounded-lg  overflow-x-scroll">
-                            <!-- Top Product -->
+
+                        <div class="h-[90%] grid grid-cols-1 lg:grid-cols-2 gap-3 overflow-hidden hover:overflow-y-scroll">
+                            <!-- Hompage Viewer count -->
+                            <div class="h-content w-full flex flex-col p-3 bg-purple-500 text-white rounded-lg shadow-md">
+                                <!-- Top Product -->
+                                <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                    <!-- Visit count code -->
+                                    <?php
+                                    $select_query = "SELECT visit_count FROM visit";
+                                    $res = mysqli_query($conn, $select_query) or die(mysqli_error($conn));
+                                    if (mysqli_num_rows($res) > 0) {
+                                        $row = mysqli_fetch_assoc($res);
+                                        $count = $row['visit_count'];
+                                        echo "<h2 class='text-lg font-bold'>Home Page</h2>";
+                                        echo "<p class='text-md font-semibold'>" . $count . " Visitors" . "</p>";
+                                    }
+                                    ?>
+                                </div>
+                                <hr class="border-dashed my-2">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Path</p>
+                                        <p class="">Meya-Store/src/index.php</p>
+                                    </div>
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Visitor Count</p>
+                                        <p class=""><?php echo $count; ?> Visitor</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Laptop Page Viewer count -->
+                            <div class="h-content w-full flex flex-col p-3 bg-purple-500 text-white rounded-lg shadow-md">
+                                <!-- Top Product -->
+                                <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                    <!-- Visit count code -->
+                                    <?php
+                                    $select_query = "SELECT laptop_visit_count FROM visit";
+                                    $res = mysqli_query($conn, $select_query) or die(mysqli_error($conn));
+                                    if (mysqli_num_rows($res) > 0) {
+                                        $row = mysqli_fetch_assoc($res);
+                                        $count = $row['laptop_visit_count'];
+                                        echo "<h2 class='text-lg font-bold'>Laptop Page</h2>";
+                                        echo "<p class='text-md font-semibold'>" . $count . " Visitors" . "</p>";
+                                    }
+                                    ?>
+                                </div>
+                                <hr class="border-dashed my-2">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Path</p>
+                                        <p class="">Meya-Store/src/index.php</p>
+                                    </div>
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Visitor Count</p>
+                                        <p class=""><?php echo $count; ?> Visitor</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Desktop Page Viewer count -->
+                            <div class="h-content w-full flex flex-col p-3 bg-purple-500 text-white rounded-lg shadow-md">
+                                <!-- Top Product -->
+                                <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                    <!-- Visit count code -->
+                                    <?php
+                                    $select_query = "SELECT desktop_visit_count FROM visit";
+                                    $res = mysqli_query($conn, $select_query) or die(mysqli_error($conn));
+                                    if (mysqli_num_rows($res) > 0) {
+                                        $row = mysqli_fetch_assoc($res);
+                                        $count = $row['desktop_visit_count'];
+                                        echo "<h2 class='text-lg font-bold'>Desktop Page</h2>";
+                                        echo "<p class='text-md font-semibold'>" . $count . " Visitors" . "</p>";
+                                    }
+                                    ?>
+                                </div>
+                                <hr class="border-dashed my-2">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Path</p>
+                                        <p class="">Meya-Store/src/index.php</p>
+                                    </div>
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Visitor Count</p>
+                                        <p class=""><?php echo $count; ?> Visitor</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile Page Viewer count -->
+                            <div class="h-content w-full flex flex-col p-3 bg-purple-500 text-white rounded-lg shadow-md">
+                                <!-- Top Product -->
+                                <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                    <!-- Visit count code -->
+                                    <?php
+                                    $select_query = "SELECT mobile_visit_count FROM visit";
+                                    $res = mysqli_query($conn, $select_query) or die(mysqli_error($conn));
+                                    if (mysqli_num_rows($res) > 0) {
+                                        $row = mysqli_fetch_assoc($res);
+                                        $count = $row['mobile_visit_count'];
+                                        echo "<h2 class='text-lg font-bold'>Mobile Page</h2>";
+                                        echo "<p class='text-md font-semibold'>" . $count . " Visitors" . "</p>";
+                                    }
+                                    ?>
+                                </div>
+                                <hr class="border-dashed my-2">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Path</p>
+                                        <p class="">Meya-Store/src/index.php</p>
+                                    </div>
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Visitor Count</p>
+                                        <p class=""><?php echo $count; ?> Visitor</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mobile Page Viewer count -->
+                            <div class="h-content w-full flex flex-col p-3 bg-purple-500 text-white rounded-lg shadow-md">
+                                <!-- Top Product -->
+                                <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                    <!-- Visit count code -->
+                                    <?php
+                                    $select_query = "SELECT mobile_visit_count FROM visit";
+                                    $res = mysqli_query($conn, $select_query) or die(mysqli_error($conn));
+                                    if (mysqli_num_rows($res) > 0) {
+                                        $row = mysqli_fetch_assoc($res);
+                                        $count = $row['mobile_visit_count'];
+                                        echo "<h2 class='text-lg font-bold'>Mobile Page</h2>";
+                                        echo "<p class='text-md font-semibold'>" . $count . " Visitors" . "</p>";
+                                    }
+                                    ?>
+                                </div>
+                                <hr class="border-dashed my-2">
+                                <div class="flex flex-col gap-3">
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Path</p>
+                                        <p class="">Meya-Store/src/index.php</p>
+                                    </div>
+                                    <div class="flex flex-col justify-between md:items-center md:flex-row">
+                                        <p class="font-bold">Visitor Count</p>
+                                        <p class=""><?php echo $count; ?> Visitor</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -225,37 +367,7 @@
                                                 </table>
 
                                                 <!-- Pagination code -->
-                                                <div class="my-5">
-                                                    <?php if (ceil($total_pages / $num_results_on_page) > 0) : ?>
-                                                        <ul class="pagination">
-                                                            <?php if ($page > 1) : ?>
-                                                                <li class="prev"><a href="edit_Products.php?page=<?php echo $page - 1 ?>">Prev</a></li>
-                                                            <?php endif; ?>
 
-                                                            <?php if ($page > 3) : ?>
-                                                                <li class="start"><a href="edit_Products.php?page=1">1</a></li>
-                                                                <li class="dots">...</li>
-                                                            <?php endif; ?>
-
-                                                            <?php if ($page - 2 > 0) : ?><li class="page"><a href="edit_Products.php?page=<?php echo $page - 2 ?>"><?php echo $page - 2 ?></a></li><?php endif; ?>
-                                                            <?php if ($page - 1 > 0) : ?><li class="page"><a href="edit_Products.php?page=<?php echo $page - 1 ?>"><?php echo $page - 1 ?></a></li><?php endif; ?>
-
-                                                            <li class="currentpage"><a href="edit_Products.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
-
-                                                            <?php if ($page + 1 < ceil($total_pages / $num_results_on_page) + 1) : ?><li class="page"><a href="edit_Products.php?page=<?php echo $page + 1 ?>"><?php echo $page + 1 ?></a></li><?php endif; ?>
-                                                            <?php if ($page + 2 < ceil($total_pages / $num_results_on_page) + 1) : ?><li class="page"><a href="edit_Products.php?page=<?php echo $page + 2 ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
-
-                                                            <?php if ($page < ceil($total_pages / $num_results_on_page) - 2) : ?>
-                                                                <li class="dots">...</li>
-                                                                <li class="end"><a href="edit_Products.php?page=<?php echo ceil($total_pages / $num_results_on_page) ?>"><?php echo ceil($total_pages / $num_results_on_page) ?></a></li>
-                                                            <?php endif; ?>
-
-                                                            <?php if ($page < ceil($total_pages / $num_results_on_page)) : ?>
-                                                                <li class="next"><a href="edit_Products.php?page=<?php echo $page + 1 ?>">Next</a></li>
-                                                            <?php endif; ?>
-                                                        </ul>
-                                                    <?php endif; ?>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

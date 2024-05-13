@@ -1,11 +1,9 @@
 <!-- including the head -->
 <?php include 'admin_partials/head.php' ?>
 
-<title>Add Blog</title>
-<link rel="stylesheet" href="admin_css/style.css">
-<!-- <link rel="stylesheet" href="admin_css/add_service.css"> -->
-<link rel="stylesheet" href="admin_css/dashboard.css">
-
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="admin_css/style.css">
+    <link rel="stylesheet" href="admin_css/dashboard.css">
 </head>
 
 
@@ -51,8 +49,6 @@
                     <textarea id="discription" required name="article" rows="10" placeholder="Blog Article" class="py-2 px-3 rounded-md border-2 border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" type="text"></textarea>
                     <p class="hidden text-red-500">Error message</p>
                 </div>
-
-                <!-- <input class="p-3 rounded-lg bg-purple-500 text-white text-lg font-semibold tracking-widest" type="submit" name="submit" value="Upload"> -->
                 <div class="flex gap-3">
                     <button type="submit" name="submit" class="w-max flex gap-3 items-center px-5 py-3 rounded-lg bg-purple-500 text-white text-lg tracking-wide hover:bg-purple-600">
                         <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">

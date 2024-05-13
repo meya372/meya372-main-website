@@ -9,10 +9,11 @@ include 'admin_scripts/login_check.php';
 
 
 <section class="flex items-center justify-between px-5 py-2">
-  <div class="flex gap-56 items-center">
+  <div class="flex gap-[7rem] items-center">
     <!-- Logo -->
-    <div class="">
+    <div class="flex gap-2 items-center">
       <img class="size-14 object-fit" src="../images/dark_logo.png" alt="">
+      <span class="self-center text-2xl font-semibold whitespace-nowrap">Meya 372</span>
     </div>
 
     <!-- Search input -->

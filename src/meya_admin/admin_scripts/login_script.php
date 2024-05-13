@@ -8,8 +8,6 @@ if (isset($_POST['login-submit'])) {
     $pwd = htmlspecialchars($_POST['password']);
 
 
-
-
     //if there is any empty field that was not filled
     if (empty($u_name) || empty($pwd)) {
         header("location: ../index.php?error=empty_fields");
@@ -32,10 +30,7 @@ if (isset($_POST['login-submit'])) {
 
             if ($row = mysqli_fetch_assoc($result)) {
                 // checking the password with the hased and correct password
-                // $pwdcheck = password_verify($pwd, $row['password']);
-
-                // TODO enable password check for the login
-                $pwdcheck = $row['password'];
+                $pwdcheck = password_verify($pwd, $row['password']);
 
                 //if password is not correct
                 if ($pwdcheck == false) {

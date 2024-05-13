@@ -4,7 +4,7 @@ if (isset($_POST['submit']) && isset($_FILES['p_img'])) {
 	require "../../config/conn.php";
 
 	// $p_name = $_POST['p_name'];
-	$s_name = mysqli_real_escape_string($conn, $_POST['p_name']);
+	$p_name = mysqli_real_escape_string($conn, $_POST['p_name']);
 	$price = $_POST['price'];
 	$category = $_POST['category'];
 	$description = $_POST['discription'];
@@ -39,7 +39,7 @@ if (isset($_POST['submit']) && isset($_FILES['p_img'])) {
 			$sec_img_extension = pathinfo($sec_img_name, PATHINFO_EXTENSION);
 			$sec_img_extension_lower = strtolower($sec_img_extension);
 
-			$allowed_extensions = array("jpg", "jpeg", "png");
+			$allowed_extensions = array("jpg", "jpeg", "png", "webp", "gif");
 
 			if (in_array($img_extension_lower, $allowed_extensions) && in_array($sec_img_extension_lower, $allowed_extensions)) {
 				$new_img_name = uniqid("IMG-", true) . '.' . $img_extension_lower;
@@ -61,11 +61,11 @@ if (isset($_POST['submit']) && isset($_FILES['p_img'])) {
 
 				$stmt = mysqli_prepare($conn, $sql);  // Prepare the statement
 
-				mysqli_stmt_bind_param($stmt, "sssssss", $s_name, $price, $category, $description, $new_img_name, $sec_new_img_name, $currentDate);
+				mysqli_stmt_bind_param($stmt, "sssssss", $p_name, $price, $category, $description, $new_img_name, $sec_new_img_name, $currentDate);
 
 				if (mysqli_stmt_execute($stmt)) {
 					echo "Product added successfully!";
-					header("Location: ../add_products.php?");
+					header("Location: ../add_products.php");
 				} else {
 					// echo "Error adding product: " . mysqli_error($conn);
 					$err = "image type is not allowed!";

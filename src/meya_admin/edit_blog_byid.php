@@ -60,12 +60,11 @@ else {
 <!-- including the head -->
 <?php include 'admin_partials/head.php' ?>
 
-<title>Edit Blog</title>
-<link rel="icon" type="image/x-icon" href="../images/fav.png">
-<script src="https://kit.fontawesome.com/b3507588bd.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="admin_css/style.css">
-<!-- <link rel="stylesheet" href="admin_css/add_service.css"> -->
-<link rel="stylesheet" href="admin_css/dashboard.css">
+  <title>Edit Blog</title>
+  <link rel="icon" type="image/x-icon" href="../images/fav.png">
+  <script src="https://kit.fontawesome.com/b3507588bd.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="admin_css/style.css">
+  <link rel="stylesheet" href="admin_css/dashboard.css">
 
 <style>
   .btn {
@@ -112,6 +111,9 @@ else {
     <div class="hidden md:block">
       <?php include 'admin_partials/Navbar_Desktop.php' ?>
     </div>
+    <div class="md:hidden">
+      <?php include 'admin_partials/Navbar_mobile.php' ?>
+    </div>
   </div>
   <!-- Bottom container -->
   <div class="bottom-container">
@@ -129,7 +131,7 @@ else {
       </div>
 
       <form method="POST" enctype="multipart/form-data" class="flex flex-col gap-5 w-full md:w-[60%]">
-        <input type="hidden" name="id" value="<?php echo $s_name ?>">
+        <input type="hidden" name="id" value="<?php echo $id ?>" />
         <div class="flex flex-col gap-3">
           <label class="text-lg font-semibold" for="name">Blog Title</label>
           <input value="<?php echo $title; ?>" placeholder="Service name" class="py-2 px-3 rounded-md border-2 border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" id="name" required name="title" type="text">
@@ -142,8 +144,6 @@ else {
 
           <p class="hidden text-red-500">Error message</p>
         </div>
-
-        <!-- <input class="p-3 rounded-lg bg-purple-500 text-white text-lg font-semibold tracking-widest" type="submit" name="submit" value="Upload"> -->
         <div class="flex gap-3">
           <button type="submit" name="submit" class="w-max flex gap-3 items-center px-5 py-3 rounded-lg bg-purple-500 text-white text-lg tracking-wide hover:bg-purple-600">
             <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -157,8 +157,6 @@ else {
           </button>
         </div>
       </form>
-
-
     </div>
   </div>
 </div>

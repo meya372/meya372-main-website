@@ -78,7 +78,7 @@ else {
 
       if (in_array($img_extension_lower, $allowed_extensions) && in_array($img2_extention_lower, $allowed_extensions)) {
         $new_img_name = uniqid("IMG-", true) . "." . $img_extension_lower;
-        $img_upload_path = "../services" . $new_img_name;
+        $img_upload_path = "./products" . $new_img_name;
         move_uploaded_file($tmp_name, $img_upload_path);
 
         // for the second image
@@ -115,35 +115,7 @@ else {
 <link rel="stylesheet" href="admin_css/dashboard.css">
 
 </head>
-<!-- <div class="add_service">
-    <form action="admin_scripts/sc_add_product.php" method="POST" enctype="multipart/form-data">
-        <label for="p_name">Product Name:</label>
-        <input required id="p_name" name="p_name" type="text">
 
-        <label for="price">Price in Birr:</label>
-        <input required id="price" name="price" type="number">
-
-        <label for="category">Product Catagory:</label>
-        <select name="category" name="category" id="">
-            <option id="aa" value="desktop">Desktop Computer</option>
-            <option value="laptop">Laptop computer</option>
-            <option value="playstation3">Playstation 3</option>
-            <option value="playstation4">Playstation 4</option>
-            <option value="mobile">Mobile Phone</option>
-        </select>
-
-        <label for="disc">Product Discription:</label>
-        <input required id="disc" name="discription" type="text">
-
-        <label for="img">Product Image (png, jpg, jpeg):</label>
-        <input type="file" name="p_img" id="img">
-
-        <label for="img2">Second Image (png, jpg, jpeg):</label>
-        <input type="file" name="sec_img" id="img2">
-
-        <input type="submit" name="submit" value="Upload">
-    </form>
-</div> -->
 
 <div class="dashboard-container ">
   <!-- Header -->
@@ -211,7 +183,7 @@ else {
           <input value="<?php echo $image2 ?>" class="bg-white py-2 px-3 rounded-md border-2 border-gray-300 outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2" type="file" name="img2_url" id="img2_url">
           <p class="hidden text-red-500"><?php echo $error2; ?></p>
         </div>
-        <!-- <input class="p-3 rounded-lg bg-purple-500 text-white text-lg font-semibold tracking-widest" type="submit" name="submit" value="Upload"> -->
+        
         <div class="flex gap-3">
           <button type="submit" class="cursor-pointer w-max flex gap-3 items-center px-5 py-3 rounded-lg bg-purple-500 text-white text-lg tracking-wide hover:bg-purple-600" type="submit" name="submit">
             <svg width="16" height="18" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -228,5 +200,3 @@ else {
     </div>
   </div>
 </div>
-
-<!-- <?php include 'admin_partials/footer.php' ?> -->

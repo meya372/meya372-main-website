@@ -1,12 +1,10 @@
 <!-- including the head -->
 <?php include 'admin_partials/head.php' ?>
 
-<title>Feedbacks</title>
-<link rel="icon" type="image/x-icon" href="../images/fav.png">
-<script src="https://kit.fontawesome.com/b3507588bd.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="admin_css/style.css">
-<!-- <link rel="stylesheet" href="admin_css/add_service.css"> -->
-<link rel="stylesheet" href="admin_css/dashboard.css">
+    <title>Feedbacks</title>
+    <link rel="icon" type="image/x-icon" href="../images/fav.png">
+    <link rel="stylesheet" href="admin_css/style.css">
+    <link rel="stylesheet" href="admin_css/dashboard.css">
 
 </head>
 

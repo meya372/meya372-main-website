@@ -1,18 +1,16 @@
 <!-- including the head -->
 <?php include 'admin_partials/head.php' ?>
 
-<title>Edit Services</title>
-<link rel="stylesheet" href="admin_css/style.css">
-<!-- <link rel="stylesheet" href="admin_css/add_service.css"> -->
-<link rel="stylesheet" href="admin_css/dashboard.css">
-<link rel="stylesheet" href="admin_css/edit_service_table.css">
-
+    <title>Edit Services</title>
+    <link rel="stylesheet" href="admin_css/style.css">
+    <link rel="stylesheet" href="admin_css/dashboard.css">
+    <link rel="stylesheet" href="admin_css/edit_service_table.css">
 
 </head>
 
 
 
-<div class="dashboard-container ">
+<div class="dashboard-container">
     <!-- Header -->
     <div class="nav">
         <!-- including the header -->
@@ -63,9 +61,6 @@
                     // Get the results...
                     $result = $stmt->get_result();
                 ?>
-
-
-
                     <div class="limiter">
                         <div class="container-table100">
                             <div class="wrap-table100">

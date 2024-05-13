@@ -7,7 +7,7 @@
 
 </head>
 
-<div class="dashboard-container overflow-hidden">
+<div class="dashboard-container h-full">
     <!-- Header -->
 
     <div class="nav">

@@ -88,21 +88,6 @@ else {
 <link rel="stylesheet" href="admin_css/dashboard.css">
 </head>
 
-<!-- <div class="add_service">
-    <form action="admin_scripts/sc_add_service.php" method="POST" enctype="multipart/form-data">
-        <label for="name">Service Name</label>
-        <input id="name" required name="s_name" type="text">
-
-        <label for="disc">Service Discription:</label>
-        <input id="disc" required name="discription" type="text">
-
-        <label for="img">Service Image (png, jpg, jpeg):</label>
-        <input type="file" required name="s_img" id="img">
-
-        <input type="submit" name="submit" value="UPLOAD">
-    </form>
-</div> -->
-
 <div class="dashboard-container ">
   <!-- Header -->
   <div class="hidden md:block">
@@ -158,7 +143,6 @@ else {
           <p class="hidden text-red-500">Error message</p>
         </div>
 
-        <!-- <input class="p-3 rounded-lg bg-purple-500 text-white text-lg font-semibold tracking-widest" type="submit" name="submit" value="Upload"> -->
         <div class="flex gap-3">
           <button type="submit" name="submit" class="w-max flex gap-3 items-center px-5 py-3 rounded-lg bg-purple-500 text-white text-lg tracking-wide hover:bg-purple-600" type="submit" name="submit">
             <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
